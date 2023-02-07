@@ -30,6 +30,9 @@ h1 {
 	margin-bottom : 3em;
 	width : 90%;
 }
+.invisible{
+	display: none;
+}
 
 /*---------------------------------------------------------------
 Tableaux
