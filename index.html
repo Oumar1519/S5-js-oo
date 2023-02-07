@@ -23,19 +23,19 @@
           <tr id="Peches">
             <td>Sac(s) de pêches</td>
             <td id="prixPeches" class="prix">10</td>
-            <td><input type="number" id="nbPeches" min="0" max="24"></td>
+            <td><input type="number" id="nbPeches"></td>
             <td id="totalPeches">0</td>
           </tr>
           <tr id="Poires">
             <td>Sac(s) de poires</td>
             <td id="prixPoires" class="prix">12</td>
-            <td><input type="number" id="nbPoires" min="0" max="24"></td>
+            <td><input type="number" id="nbPoires"></td>
             <td id="totalPoires">0</td>
           </tr>
           <tr id="Pommes">
             <td>Sac(s) de pommes</td>
             <td id="prixPommes" class="prix">11</td>
-            <td><input type="number" id="nbPommes" min="0" max="24"></td>
+            <td><input type="number" id="nbPommes"></td>
             <td id="totalPommes">0</td>
           </tr>
         </tbody>
@@ -47,11 +47,12 @@
         </tfoot>
       </table>
       <p class="error invisible center">La valeur minimale des paniers est de 20$.</p>
+      <span></span>
       <div class="center">
         <input id="conditions" type="checkbox" required>
         <label for="conditions">J'ai lu et j'accepte les conditions de vente.</label>
         <div class="boutons">
-          <input type="submit" value="Envoyer" onclick="return validerFormulaire()">
+          <input type="submit" value="Envoyer" >
           <input value="Annuler" type="reset">
         </div>
       </div>

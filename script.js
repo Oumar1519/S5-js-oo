@@ -2,7 +2,7 @@
 let leNbrePeche=document.getElementById("nbPeches");
 let leNbrePoire=document.getElementById("nbPoires");
 let leNbrePomme=document.getElementById("nbPommes");
-let total=document.getElementById("total");
+
 
 
 /**
@@ -49,10 +49,8 @@ this.affichfruit=function (){
     document.getElementById('total').textContent=this.totalGeneral();
 }
 
-
-
-
 }
+
 
 /**
  * initialiser mon panier
@@ -72,55 +70,52 @@ leNbrePomme.onchange=function (){
     panier.sousTotalPomme();
     panier.affichfruit();
 }
-/**
- * validation du formulaire
- */
-function validerFormulaire(){
-if (total>=20){
-    document.querySelector('.error').setAttribute("class","")
-    return false
+/**function validerFormulaire(){
+    let total=panier.totalGeneral()
+if (total<=20){
+    document.querySelector('.error').setAttribute('class','');
+    return false;
 }
+else{
+    document.querySelector('.error').setAttribute('class','invisible')
+    return true;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**let valPeche=document.getElementById("nbPeches");
-let prixPeche=document.getElementById("prixPeches");
-let quantite=document.getElementById('nbPeches');
-let fruits=function (){
-    this.typeFruit='pomme';
-    this.quantite=quantite.value;
-    this.prix=prixPeche.value;
-
-
-}
-let soustot=function (){
-
-    return parseInt(prixPeche.value,10)*parseInt(quantite.value,10)
-}
-
-let panier=new fruits()
-
-valPeche.onchange=function (){
-    document.getElementById("totalPeches").textContent=soustot();
-    //panier.affichePrixTotal();
 
 }**/
+
+document.querySelector('form').addEventListener('submit',function (eve){
+    let total=panier.totalGeneral();
+    let soustotalPeche=panier.sousTotalpeche();
+    let sousTotalPoire=panier.sousTotalPoire();
+    let sousTotalPomme=panier.sousTotalPomme();
+    let valid=true;
+    if (total<=20){
+        document.querySelector('.error').classList.remove('invisible');
+        valid= false;
+    }
+    else if (sousTotalPomme>25){
+        document.querySelector('span').innerText="doit etre inferieur a 25";
+        valid=false
+    }
+
+    if (!valid){
+        eve.preventDefault();
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
